@@ -1,5 +1,8 @@
 package com.example.springBootJenkinsJob;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+import lombok.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleController {
 
   @RequestMapping("/hello")
-  public String index() {
-    return "Greetings from Spring Boot!";
+  public HelloObject index() {
+    return new HelloObject("greetings from spring boot app");
+  }
+
+  @Data
+  private static class HelloObject {
+
+    @NonNull
+    @JsonProperty(value = "sayHello")
+    private String greeting;
   }
 
 }
