@@ -11,7 +11,7 @@ public class SimpleController {
 
   @RequestMapping("/hello")
   public HelloObject index() {
-    return new HelloObject("greetings from spring boot app");
+    return new HelloObject("Greetings from spring boot app!");
   }
 
   @Data
